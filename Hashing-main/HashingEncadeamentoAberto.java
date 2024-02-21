@@ -5,12 +5,12 @@ import java.util.List;
 
 public class HashingEncadeamentoAberto implements EstruturaDeDados {
     private List<Integer>[] tabela;
-    private int tamanho;
+    private int Tamanho;
 
     @SuppressWarnings("unchecked")
     public HashingEncadeamentoAberto() {
-        this.tamanho = 1000; // Tamanho inicial da tabela
-        this.tabela = new ArrayList[tamanho];
+        this.Tamanho = 1000; // Tamanho inicial da tabela
+        this.tabela = new ArrayList[Tamanho];
     }
 
     @Override
@@ -35,9 +35,11 @@ public class HashingEncadeamentoAberto implements EstruturaDeDados {
 
     @Override
     public boolean search(int chave) {
+
         int indice = hash(chave);
 
         if (tabela[indice] != null) {
+
             return tabela[indice].contains(chave);
         }
 
@@ -45,6 +47,7 @@ public class HashingEncadeamentoAberto implements EstruturaDeDados {
     }
 
     private int hash(int chave) {
-        return chave % tamanho;
+
+        return chave % Tamanho;
     }
 }
